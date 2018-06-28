@@ -1,0 +1,82 @@
+.event {
+
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+
+    display: flex ;
+    flex-flow: row ;
+}
+
+.event .attendees {
+    flex: 1 1 20%;
+
+    display: flex ;
+    flex-flow: column;
+}
+
+.event .detail {
+    flex: 1 1 70%;
+
+    display: flex ;
+    flex-flow: column;
+     margin: 10 px;
+}
+
+.event .action {
+    flex: 1 1 10%;
+
+    display: flex ;
+    flex-flow: column;
+}
+
+.event .detail .title {
+  
+    display: inline;
+    background: burlywood ;
+    padding: 10px;
+    margin: 10px;
+    font-family: Arial;
+    font: 16px ;
+    font-style: bold;
+}
+
+.event .detail .description {
+
+    display: inline;
+    background: azure ;
+    margin: 10px;
+    padding: 10px;
+    font-family: Arial ;
+    text-justify: auto;
+    text-align: justify;
+}
+
+
+.event .attendees .title {
+  
+    display: inline;
+    background: burlywood ;
+    padding: 10px;
+    margin: 10px;
+    font-family: Arial;
+    font: 16px ;
+    font-style: bold;
+}
+
+.event .action .title {
+  
+    display: inline;
+    background: burlywood ;
+    padding: 10px;
+    margin: 10px;
+    font-family: Arial;
+    font: 16px ;
+    font-style: bold;
+}
+
+.event .action .go {
+    display: flex ;
+    flex-flow: column ;
+    padding: 10px;
+}

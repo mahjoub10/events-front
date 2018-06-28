@@ -1,0 +1,72 @@
+<section class="container-fluid with-maxwidth chapter">
+
+    <article class="article">
+        <h2 class="article-title">Please tell us about yourself</h2>
+        <form name="subscriptionForm" #subForm="ngForm" (ngSubmit)="subscribe()">
+
+            <div class="row form-group">
+                <div class='col-6'>
+                    <mat-form-field class="full-width">
+                        <input #firstname="ngModel" required id="firstname" name="firstname" [(ngModel)]="attendee.firstName" matInput placeholder="Nom"
+                            required>
+                    </mat-form-field>
+                </div>
+                <div class='col-6'>
+                    <mat-form-field class="full-width">
+                        <input #lastname="ngModel" required id="lastname" name="lastname" [(ngModel)]="attendee.lastName" matInput placeholder="Prénom"
+                            required>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class='col-6'>
+                    <mat-form-field class="full-width">
+                        <input #mobile="ngModel" required id="mobile" name="mobile" [(ngModel)]="attendee.mobile" matInput placeholder="Mobile" required>
+                    </mat-form-field>
+                </div>
+                <div class='col-6'>
+                    <mat-form-field class="full-width">
+                        <input #email="ngModel" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" id="email" name="email" [(ngModel)]="attendee.email"
+                            matInput placeholder="Email" required>
+                    </mat-form-field>
+                </div>
+            </div>
+
+
+            <div class="row form-group">
+                <div class='col-6'>
+                    <mat-form-field class="full-width">
+                        <input #password="ngModel" type="password" required id="password" name="password" [(ngModel)]="attendee.password" matInput
+                            placeholder="Mot de passe" required>
+                    </mat-form-field>
+                </div>
+
+                <div class='col-6'>
+                    <mat-form-field class="full-width">
+                        <input #confirm="ngModel" type="password" required d="confirm" name="confirm" [(ngModel)]="confirmPassword" matInput placeholder="Confirmer votre mot de passe"
+                            required>
+                    </mat-form-field>
+                </div>
+
+            </div>
+
+            <div class="form-group text-center">
+
+                <button type="reset" class="btn btn-success btn-outline-rounded btn-info">
+                    Annuler
+                    <span style="margin-left:10px;" class="glyphicon glyphicon-refresh"></span>
+                </button>
+                <button  type="submit" class="btn btn-success btn-outline-rounded">
+                    Envoyer
+                    <span style="margin-left:10px;" class="glyphicon glyphicon-save"></span>
+                </button>
+
+
+
+            </div>
+        </form>
+    </article>
+
+
+
+</section>

@@ -1,0 +1,28 @@
+<section>
+
+    <div class="event">
+        <div class="attendees">
+            <div class="title">Liste des invités</div>
+        </div>
+
+        <div class="detail">
+
+            <div class="title">{{event.name}}</div>
+
+            <div class="description">{{event.description}}</div>
+
+        </div>
+
+        <div class="action">
+            <div class="title">Action</div>
+            <div class="go">
+                <button [disabled]="!isGoing" (click)="going()" class="btn btn-success">I'm going</button>
+                <br>
+                <button [disabled]="isGoing"  (click)="notGoing()" class="btn btn-warning">Not going</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

@@ -1,0 +1,69 @@
+<section class="container-fluid with-maxwidth chapter">
+
+    <article class="article">
+        <h2 class="article-title">Création d'un évennement</h2>
+        <form name="createEventForm" #eventForm="ngForm" (ngSubmit)="createEvent(eventForm)">
+
+            <div class="row form-group">
+                <div class='col-6'>
+                    <mat-form-field class="full-width">
+                        <input #name="ngModel" required id="name" name="name" [(ngModel)]="event.name" matInput placeholder="Nom" required>
+                    </mat-form-field>
+                </div>
+                <div class='col-6'>
+                    <mat-form-field class="full-width">
+                        <input #subject="ngModel" required id="subject" name="subject" [(ngModel)]="event.subject" matInput placeholder="Sujet" required>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class='col-6'>
+                    <mat-form-field>
+                        <input #start="ngModel" required id="start" name="start" [(ngModel)]="event.start" matInput [matDatepicker]="picker" placeholder="Date">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                </div>
+                <div class='col-6'>
+                    <mat-form-field>
+                        <mat-select placeholder="Speakers" [(ngModel)]="selectedSpeakers" multiple name="food">
+                            <mat-option *ngFor="let speaker of speakers" [value]="speaker.id">
+                                {{speaker.firstName + '  '+speaker.lastName}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+
+
+            <div class="row form-group">
+                <div class='col-12'>
+                    <mat-form-field class="full-width">
+                        <textarea #description="ngModel" required id="description" name="description" [(ngModel)]="event.description" matInput placeholder="Description"
+                            required></textarea>
+                    </mat-form-field>
+                </div>
+
+
+            </div>
+
+            <div class="form-group text-center">
+
+                <button type="reset" class="btn btn-success btn-outline-rounded btn-info">
+                    Annuler
+                    <span style="margin-left:10px;" class="glyphicon glyphicon-refresh"></span>
+                </button>
+                <button type="submit" class="btn btn-success btn-outline-rounded">
+                    Envoyer
+                    <span style="margin-left:10px;" class="glyphicon glyphicon-save"></span>
+                </button>
+
+
+
+            </div>
+        </form>
+    </article>
+
+
+
+</section>
