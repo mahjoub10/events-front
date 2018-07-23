@@ -1,0 +1,93 @@
+<section class="container-fluid no-breadcrumbs chapter">
+
+    <div class="row">
+        <div class="col-xl-3 col-lg-6">
+            <section *ngFor="let event of myEvents" class="pricing-table pricing-table-primary">
+                <header>
+                    <h2>{{event.name}}</h2>
+                </header>
+                <p class="pricing-price">
+                    <span class="pricing-sign">{{event.description}}</span>
+                </p>
+                <div class="pricing-plan-details">
+                    <p class="pricing-lead">Invités</p>
+                    <ul>
+                        <li *ngFor="let attendee of event.attendees">
+                            <a (click)="openAttendeeDetail(attendee,templateDetail)">
+                                {{attendee.firstName+' '+attendee.lastName}}
+                            </a>
+
+                        </li>
+
+                    </ul>
+                </div>
+                <footer>
+                    <button mat-raised-button color="primary" class="btn-w-lg">Get it Now</button>
+                </footer>
+            </section>
+        </div>
+
+
+    </div>
+
+
+
+</section>
+
+<ng-template #templateDetail>
+
+
+        <article >
+            <form>
+
+                <div class="row form-group">
+                    <div class='col-6'>
+                        <mat-form-field class="full-width">
+                            <input id="firstname" name="firstname" [(ngModel)]="attendee.firstName" matInput placeholder="Nom">
+                        </mat-form-field>
+                    </div>
+                    <div class='col-6'>
+                        <mat-form-field class="full-width">
+                            <input #lastname="ngModel" required id="lastname" name="lastname" [(ngModel)]="attendee.lastName" matInput placeholder="Prénom"
+                                required>
+                        </mat-form-field>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class='col-6'>
+                        <mat-form-field class="full-width">
+                            <input #mobile="ngModel" required id="mobile" name="mobile" [(ngModel)]="attendee.mobile" matInput placeholder="Mobile" required>
+                        </mat-form-field>
+                    </div>
+                    <div class='col-6'>
+                        <mat-form-field class="full-width">
+                            <input #email="ngModel" required pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" id="email" name="email" [(ngModel)]="attendee.email"
+                                matInput placeholder="Email" required>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+
+                <div class="row form-group">
+                    <div class='col-6'>
+                        <mat-form-field class="full-width">
+                            <input #password="ngModel" type="password" required id="password" name="password" [(ngModel)]="attendee.password" matInput
+                                placeholder="Mot de passe" required>
+                        </mat-form-field>
+                    </div>
+
+                    <div class='col-6'>
+                        <mat-form-field class="full-width">
+                            <input #confirm="ngModel" type="password" required d="confirm" name="confirm" [(ngModel)]="confirmPassword" matInput placeholder="Confirmer votre mot de passe"
+                                required>
+                        </mat-form-field>
+                    </div>
+
+                </div>
+
+
+            </form>
+        </article>
+
+
+</ng-template>

@@ -39,7 +39,7 @@
                         Ajouter speaker
                     </button>
                 </li>
-        
+
                 <li>
                     <button *ngSwitchCase="false" mat-button class="md-button header-btn" [routerLink]="['/login']">
                         Login
@@ -50,11 +50,17 @@
                         Inscription
                     </button>
                 </li>
+                <li *userAuthority="'ROLE_SPEAKER'">
+                    <button [routerLink]="['/speaker/myEvents']" mat-button class="md-button header-btn">
+                        Més évennement
+                    </button>
+                </li>
                 <li>
                     <button *ngSwitchCase="true" mat-button class="md-button header-btn" (click)="logout()">
                         Logout
                     </button>
                 </li>
+
 
                 <li>
                     <button mat-button class="md-button header-btn d-lg-none d-xl-none" myOpenSearchOverlay>

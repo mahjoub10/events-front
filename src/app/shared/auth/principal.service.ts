@@ -65,6 +65,7 @@ export class Principal {
             if (account) {
                 this.userIdentity = account;
                 this.setAuthenticate(true);
+                localStorage.setItem('userId', this.userIdentity.id);
             } else {
                 this.userIdentity = null;
                 this.setAuthenticate(false);

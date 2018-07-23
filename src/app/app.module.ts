@@ -70,6 +70,7 @@ import { AlertOption } from './shared/components/alert/alert.option';
 import { AttendeeModule } from './attendee/attendee.module';
 import { EventsModule } from './events/events.module';
 import { AdminModule } from './admin/admin.module';
+import { SpeakerModule } from './speaker/speaker.module';
 
 @NgModule({
   imports: [
@@ -122,7 +123,8 @@ import { AdminModule } from './admin/admin.module';
     SharedModule,
     AttendeeModule,
     EventsModule,
-    AdminModule
+    AdminModule,
+    SpeakerModule
   ],
   declarations: [
     AppComponent,
