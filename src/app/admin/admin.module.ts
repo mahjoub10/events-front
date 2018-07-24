@@ -32,6 +32,7 @@ import { AddOrganizerComponent } from './manage-organizer/add-organizer.componen
 import { OrganizerResource } from './manage-organizer/organizer.resource';
 import { OrganizerService } from './manage-organizer/organizer.service';
 import { OrganizerListResolve } from './manage-organizer/organizer-list.resolve';
+import { OrganizerListComponent } from './manage-organizer/list-organizer.component';
 
 @NgModule({
     imports: [
@@ -58,7 +59,8 @@ import { OrganizerListResolve } from './manage-organizer/organizer-list.resolve'
         AdminComponent,
         AddSpeakerComponent,
         AddEventComponent,
-        AddOrganizerComponent
+        AddOrganizerComponent,
+        OrganizerListComponent
     ],
     providers: [
         SpeakerService,
