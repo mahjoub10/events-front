@@ -28,6 +28,10 @@ import { AddEventComponent } from './manage-events/add-event.component';
 import { EventResource } from './manage-events/event.resource';
 import { EventService } from './manage-events/event.service';
 import { SpeakerListResolve } from './manage-speakers/speaker-list.resolve';
+import { AddOrganizerComponent } from './manage-organizer/add-organizer.component';
+import { OrganizerResource } from './manage-organizer/organizer.resource';
+import { OrganizerService } from './manage-organizer/organizer.service';
+import { OrganizerListResolve } from './manage-organizer/organizer-list.resolve';
 
 @NgModule({
     imports: [
@@ -53,14 +57,18 @@ import { SpeakerListResolve } from './manage-speakers/speaker-list.resolve';
     declarations: [
         AdminComponent,
         AddSpeakerComponent,
-        AddEventComponent
+        AddEventComponent,
+        AddOrganizerComponent
     ],
     providers: [
         SpeakerService,
         SpeakerResource,
         EventService,
         EventResource,
-        SpeakerListResolve
+        SpeakerListResolve,
+        OrganizerResource,
+        OrganizerService,
+        OrganizerListResolve
     ],
     exports: []
 })
