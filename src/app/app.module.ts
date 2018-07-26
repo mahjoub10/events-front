@@ -71,6 +71,7 @@ import { AttendeeModule } from './attendee/attendee.module';
 import { EventsModule } from './events/events.module';
 import { AdminModule } from './admin/admin.module';
 import { SpeakerModule } from './speaker/speaker.module';
+import { OrganizerModule } from './organizer/organizer.module';
 
 @NgModule({
   imports: [
@@ -124,7 +125,8 @@ import { SpeakerModule } from './speaker/speaker.module';
     AttendeeModule,
     EventsModule,
     AdminModule,
-    SpeakerModule
+    SpeakerModule,
+    OrganizerModule
   ],
   declarations: [
     AppComponent,

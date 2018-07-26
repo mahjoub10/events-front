@@ -16,7 +16,8 @@ import {
     MatFormFieldModule,
     MatDatepickerModule,
     MatTabsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTableModule,
 } from '@angular/material';
 
 import { AdminRoutingModule } from './admin-routing';
@@ -24,9 +25,6 @@ import { AdminComponent } from './admin.component';
 import { AddSpeakerComponent } from './manage-speakers/add-speaker.component';
 import { SpeakerResource } from './manage-speakers/speaker.resource';
 import { SpeakerService } from './manage-speakers/speaker.service';
-import { AddEventComponent } from './manage-events/add-event.component';
-import { EventResource } from './manage-events/event.resource';
-import { EventService } from './manage-events/event.service';
 import { SpeakerListResolve } from './manage-speakers/speaker-list.resolve';
 import { AddOrganizerComponent } from './manage-organizer/add-organizer.component';
 import { OrganizerResource } from './manage-organizer/organizer.resource';
@@ -52,21 +50,19 @@ import { OrganizerListComponent } from './manage-organizer/list-organizer.compon
         CommonModule,
         ReactiveFormsModule,
         AdminRoutingModule,
+        MatTableModule,
         TypeaheadModule.forRoot()
 
     ],
     declarations: [
         AdminComponent,
         AddSpeakerComponent,
-        AddEventComponent,
         AddOrganizerComponent,
         OrganizerListComponent
     ],
     providers: [
         SpeakerService,
         SpeakerResource,
-        EventService,
-        EventResource,
         SpeakerListResolve,
         OrganizerResource,
         OrganizerService,

@@ -2,12 +2,10 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AdminComponent } from './admin.component';
 import { AddSpeakerComponent } from './manage-speakers/add-speaker.component';
-import { AddEventComponent } from './manage-events/add-event.component';
 import { SpeakerListResolve } from './manage-speakers/speaker-list.resolve';
 import { AddOrganizerComponent } from './manage-organizer/add-organizer.component';
 import { OrganizerListResolve } from './manage-organizer/organizer-list.resolve';
 import { OrganizerListComponent } from './manage-organizer/list-organizer.component';
-
 
 const routes: Routes = [
     {
@@ -17,13 +15,6 @@ const routes: Routes = [
             {
                 path: 'speaker/create',
                 component: AddSpeakerComponent
-            },
-            {
-                path: 'event/create',
-                component: AddEventComponent,
-                resolve: {
-                    speakers: SpeakerListResolve
-                }
             },
             {
                 path: 'organizer/create',
