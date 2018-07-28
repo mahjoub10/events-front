@@ -25,6 +25,9 @@ import { OrganizerComponent } from './organizer.component';
 import { AddEventComponent } from './manage-events/add-event.component';
 import { EventResource } from './manage-events/event.resource';
 import { EventService } from './manage-events/event.service';
+import { RequestResource } from './manage-request/request.resource';
+import { RequestService } from './manage-request/request.service';
+import { RequestListResolve } from './manage-request/request-list.resolve';
 
 @NgModule({
     imports: [
@@ -55,8 +58,11 @@ import { EventService } from './manage-events/event.service';
     providers: [
         EventService,
         EventResource,
+        RequestResource,
+        RequestService,
+        RequestListResolve
     ],
-    exports: []
+    exports: [RequestListResolve]
 })
 export class OrganizerModule {
 
