@@ -62,7 +62,7 @@ import { RequestListResolve } from './manage-request/request-list.resolve';
         RequestService,
         RequestListResolve
     ],
-    exports: [RequestListResolve]
+    exports: []
 })
 export class OrganizerModule {
 

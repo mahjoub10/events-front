@@ -1,0 +1,56 @@
+<section class="container-fluid with-maxwidth chapter">
+
+  <article class="article">
+    <h2 class="article-title">Les nouvelles évenements</h2>
+    <div class="box box-default table-box mdl-shadow--2dp">
+      <mat-table #table [dataSource]='dataSource'>
+
+
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef> Nom </mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.name}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="subject">
+          <mat-header-cell *matHeaderCellDef> Sujet </mat-header-cell>
+          <mat-cell *matCellDef="let element">{{element.subject}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="organizer">
+          <mat-header-cell *matHeaderCellDef> Organizer </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.organizer?.firstName+ ' '+element.organizer?.lastName}} </mat-cell>
+        </ng-container>
+
+
+        <ng-container matColumnDef="description">
+          <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.description | slice:0:100 }}.... </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="start">
+          <mat-header-cell *matHeaderCellDef> Date </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{element.start | date}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="participation">
+          <mat-header-cell *matHeaderCellDef> Participation </mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <span *ngIf="checkCurrentUserGoing(element)">You are going</span>
+            <span *ngIf="!checkCurrentUserGoing(element)">
+              <a [routerLink]="['/speaker/event/request',element.id,'create']" style="cursor: pointer;">Participer</a>
+              <!-- events/requests/:id/create -->
+            </span>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+
+      <mat-paginator #paginator [length]="events.length" [pageIndex]="0" [pageSize]="25" [pageSizeOptions]="[5, 10, 25, 100]">
+      </mat-paginator>
+    </div>
+  </article>
+
+
+</section>

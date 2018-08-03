@@ -29,19 +29,25 @@
                         Liste event
                     </button>
                 </li>
-                <li *userAuthority="'ROLE_ADMIN'">
-                    <button [routerLink]="['/admin/event/create']" mat-button class="md-button header-btn">
+                <li>
+                    <button [routerLink]="['/organizer/event/create']" mat-button class="md-button header-btn">
                         Ajouter event
                     </button>
                 </li>
-                <li *userAuthority="'ROLE_ADMIN'">
+                <li>
                     <button [routerLink]="['/admin/speaker/create']" mat-button class="md-button header-btn">
                         Ajouter speaker
                     </button>
                 </li>
-                <li *userAuthority="'ROLE_ADMIN'">
+                <li>
                     <button [routerLink]="['/admin/organizer/list']" mat-button class="md-button header-btn">
-                     Les  Organizateur
+                        Les Organizateur
+                    </button>
+                </li>
+
+                <li>
+                    <button [routerLink]="['/speaker/events/requests']" mat-button class="md-button header-btn">
+                        Ajouter demande
                     </button>
                 </li>
 
@@ -55,7 +61,7 @@
                         Inscription
                     </button>
                 </li>
-                <li *userAuthority="'ROLE_SPEAKER'">
+                <li>
                     <button [routerLink]="['/speaker/myEvents']" mat-button class="md-button header-btn">
                         Més évennement
                     </button>

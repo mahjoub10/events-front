@@ -1,0 +1,56 @@
+<section class="container-fluid with-maxwidth chapter">
+
+    <article class="article">
+        <h2 class="article-title">Création d'une demande de participation {{currentEvent.id}}</h2>
+        
+        <form name="requestForm" #requestForm="ngForm" (ngSubmit)="addRequest(requestForm)">
+
+            <div class="row form-group">
+                <div class='col-6'>
+                    <mat-form-field class="full-width">
+                        <input #event="ngModel" required id="event" name="event" [(ngModel)]="currentEvent.subject" matInput [disabled]="true" required>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row form-group">
+                <div class='col-6'>
+                    <mat-form-field class="full-width">
+                        <mat-select placeholder="Type de participation" [(ngModel)]="request.type" name="type">
+                            <mat-option *ngFor="let type of participationTypes" [value]="type.key">
+                                {{type.value}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row form-group">
+
+                <div class='col-6'>
+                    <mat-form-field class="full-width">
+                        <textarea #description="ngModel" required id="description" name="description" [(ngModel)]="request.description" matInput
+                            placeholder="Description" required></textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="form-group text-center">
+
+                <button type="reset" class="btn btn-success btn-outline-rounded btn-info">
+                    Annuler
+                    <span style="margin-left:10px;" class="glyphicon glyphicon-refresh"></span>
+                </button>
+                <button type="submit" class="btn btn-success btn-outline-rounded">
+                    Envoyer
+                    <span style="margin-left:10px;" class="glyphicon glyphicon-save"></span>
+                </button>
+
+            </div>
+
+        </form>
+    </article>
+
+
+
+</section>

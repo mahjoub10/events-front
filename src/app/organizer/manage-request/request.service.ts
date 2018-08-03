@@ -19,4 +19,10 @@ export class RequestService {
     }
 
 
+    public addRequest(request: Request): Observable<any> {
+
+        return this.resource.createRequest(request);
+    }
+
+
 }

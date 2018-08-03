@@ -1,7 +1,7 @@
-
+import { Event } from './event';
 export class Request {
 
-    event: Event;
+    eventId: number;
     speakerId: number;
     type: string;
     status: string;

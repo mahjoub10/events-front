@@ -2,6 +2,8 @@ import { Component, OnInit, TemplateRef } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Event } from '../../shared/models/event';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap';
+import { MatTableDataSource } from '@angular/material';
+import { Principal } from '../../shared/auth/principal.service'
 
 @Component({
     selector: 'app-event-request',
@@ -11,10 +13,14 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 export class EventRequestComponent implements OnInit {
 
     public events = [];
+    public currentUser;
     public modalRef: BsModalRef;
+    public dataSource: MatTableDataSource<Event>;
+    public displayedColumns = ['name', 'subject', 'organizer', 'description', 'start', 'participation'];
 
     // CONSTRUCTOR
     constructor(
+        private principal: Principal,
         private bsModalService: BsModalService,
         private route: ActivatedRoute,
         private router: Router
@@ -23,12 +29,21 @@ export class EventRequestComponent implements OnInit {
     // ON INIT LIFE CYCLE
     ngOnInit() {
         console.log('Init my event request component');
+        this.getCurrentUser();
         this.events = this.route.snapshot.data['events'];
+        this.dataSource = new MatTableDataSource(this.events);
     }
 
-    openAttendeeDetail(template: TemplateRef<any>): void {
-        this.modalRef = this.bsModalService.show(template);
+    checkCurrentUserGoing(event: Event): boolean {
 
+        const isGoing = event.requests.find((req) => req.speakerId === this.currentUser.id);
+        return isGoing !== undefined;
+    }
+
+    private getCurrentUser() {
+        this.principal.identity().then((account) => {
+            this.currentUser = account;
+        });
     }
 
 }

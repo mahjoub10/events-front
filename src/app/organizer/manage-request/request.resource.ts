@@ -28,7 +28,26 @@ export class RequestResource {
 
     }
 
+    /**
+     * 
+     * @param request.
+     */
+    createRequest(request: Request): Observable<any> {
+        const url = this.url + '/api/requests/add';
+        const body = JSON.stringify(request);
+        const option = new RequestOptions();
+        const param = new URLSearchParams();
+        const header = new Headers({ 'Content-Type': 'application/json' });
 
+        option.params = param;
+        option.headers = header;
+
+        return this.http
+            .post(url, body, option)
+            .map((res: Response) => res.json())
+            .catch(this.handleError);
+
+    }
 
     // Handle server errors
     private handleError(error: Response | any) {
