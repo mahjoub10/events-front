@@ -24,5 +24,9 @@ export class RequestService {
         return this.resource.createRequest(request);
     }
 
+    public updateRequestStatus(idRequest: number, newStatus: string): Observable<any> {
+
+        return this.resource.updateRequestStatus(idRequest, newStatus);
+    }
 
 }

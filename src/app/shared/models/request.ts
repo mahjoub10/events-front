@@ -7,4 +7,6 @@ export class Request {
     status: string;
     date: Date;
     description: string;
+    speakerFullName: string;
+    eventSubject: string;
 }

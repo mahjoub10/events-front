@@ -35,8 +35,10 @@
         <ng-container matColumnDef="participation">
           <mat-header-cell *matHeaderCellDef> Participation </mat-header-cell>
           <mat-cell *matCellDef="let element">
-            <span *ngIf="checkCurrentUserGoing(element)">You are going</span>
-            <span *ngIf="!checkCurrentUserGoing(element)">
+            <span *ngIf="checkCurrentUserGoing(element) === 'WAITING'">Demande en attente</span>
+            <span *ngIf="checkCurrentUserGoing(element) === 'ACCEPTED'">Demande acceptée</span>
+            <span *ngIf="checkCurrentUserGoing(element) === 'REFUSED'">Demande refusée</span>
+            <span *ngIf="checkCurrentUserGoing(element) === 'PARTICIPATE'">
               <a [routerLink]="['/speaker/event/request',element.id,'create']" style="cursor: pointer;">Participer</a>
               <!-- events/requests/:id/create -->
             </span>

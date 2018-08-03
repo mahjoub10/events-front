@@ -67,6 +67,11 @@
                     </button>
                 </li>
                 <li>
+                    <button [routerLink]="['/organizer/requests']" mat-button class="md-button header-btn">
+                        Liste des demandes
+                    </button>
+                </li>
+                <li>
                     <button *ngSwitchCase="true" mat-button class="md-button header-btn" (click)="logout()">
                         Logout
                     </button>

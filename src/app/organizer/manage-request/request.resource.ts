@@ -49,6 +49,17 @@ export class RequestResource {
 
     }
 
+    updateRequestStatus(idRequest: number, newStatus: string): Observable<any> {
+        const url = this.url + '/api/requests/update?requestId=' + idRequest + '&status=' + newStatus;
+        const option = new RequestOptions();
+
+        return this.http
+            .put(url, option)
+            .map((res: Response) => res.json())
+            .catch(this.handleError);
+
+    }
+
     // Handle server errors
     private handleError(error: Response | any) {
         let err: {};

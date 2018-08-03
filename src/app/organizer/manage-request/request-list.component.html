@@ -1,0 +1,118 @@
+<section class="container-fluid with-maxwidth chapter">
+
+    <article class="article">
+        <h2 class="article-title">Les nouvelles demandes</h2>
+        <div class="box box-default table-box mdl-shadow--2dp">
+            <mat-table #table [dataSource]='dataSource'>
+
+
+                <ng-container matColumnDef="speaker">
+                    <mat-header-cell *matHeaderCellDef> Speaker </mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.speakerFullName}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="event">
+                    <mat-header-cell *matHeaderCellDef> Evenement </mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.eventSubject}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="type">
+                    <mat-header-cell *matHeaderCellDef> Type de demande </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        <span *ngIf="element.type === 'COMPETITION'">Compététion</span>
+                        <span *ngIf="element.type === 'WORKSHOP'">Workshop</span>
+                        <span *ngIf="element.type === 'ALL'">Les deux</span>
+                    </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="description">
+                    <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+                    <mat-cell *matCellDef="let element">{{element.description}} </mat-cell>
+                </ng-container>
+
+                <ng-container matColumnDef="action">
+                    <mat-header-cell *matHeaderCellDef> Description </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                        <span class="btn btn-success" (click)="openDialog(element.id,acceptTemplate)">accpeter</span>
+                        <span class="btn btn-warning" (click)="openDialog(element.id,refuseTemplate)">refuser</span>
+                    </mat-cell>
+                </ng-container>
+
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+
+            <mat-paginator #paginator [length]="requests.length" [pageIndex]="0" [pageSize]="25" [pageSizeOptions]="[5, 10, 25, 100]">
+            </mat-paginator>
+        </div>
+    </article>
+
+
+</section>
+
+
+<ng-template #acceptTemplate>
+
+    <div class="modal-body style-modal">
+        <div class="row">
+            <div class="col-md-12 login-form">
+                <div class="">
+                    <!--  style="padding-left: 15px;font-size: 24px;"-->
+                    <h4>Cette demande sera accepté </h4>
+                    <div class="portlet ">
+
+                        <div class="portlet-body form">
+                            <!-- BEGIN FORM-->
+                            <p> Êtes-vous sûr de vouloir accepter?</p>
+                            <!-- END FORM-->
+                        </div>
+
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <hr>
+                                    <a class="btn default" type="button" (click)="modalRef.hide()" data-dismiss="modal"> Annuler </a>
+                                    <a (click)="changeStatus('ACCEPTED')" type="submit" class="btn green"> Envoyer </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ng-template>
+
+<ng-template #refuseTemplate>
+
+    <div class="modal-body style-modal">
+        <div class="row">
+            <div class="col-md-12 login-form">
+                <div class="">
+                    <h4>Cette demande sera refusée </h4>
+                    <div class="portlet ">
+
+                        <div class="portlet-body form">
+                            <p> Êtes-vous sûr de vouloir refuser?</p>
+                        </div>
+
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <hr>
+                                    <a class="btn btn-default" type="button" (click)="modalRef.hide()" data-dismiss="modal"> Annuler </a>
+                                    <a (click)="changeStatus('REFUSED')" type="submit" class="btn btn-success"> Envoyer </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</ng-template>

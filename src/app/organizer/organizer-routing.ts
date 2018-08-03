@@ -2,7 +2,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { OrganizerComponent } from './organizer.component';
 import { AddEventComponent } from './manage-events/add-event.component';
-import { RequestComponent } from './manage-request/request.component';
+import { RequestListComponent } from './manage-request/request-list.component';
 import { RequestListResolve } from './manage-request/request-list.resolve';
 
 
@@ -17,7 +17,7 @@ const routes: Routes = [
             },
             {
                 path: 'requests',
-                component: RequestListResolve,
+                component: RequestListComponent,
                 resolve: {
                     requests: RequestListResolve
                 }

@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Event } from '../../shared/models/event';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap';
 import { MatTableDataSource } from '@angular/material';
-import { Principal } from '../../shared/auth/principal.service'
+import { Principal } from '../../shared/auth/principal.service' ;
 
 @Component({
     selector: 'app-event-request',
@@ -34,10 +34,14 @@ export class EventRequestComponent implements OnInit {
         this.dataSource = new MatTableDataSource(this.events);
     }
 
-    checkCurrentUserGoing(event: Event): boolean {
+    checkCurrentUserGoing(event: Event): string {
 
-        const isGoing = event.requests.find((req) => req.speakerId === this.currentUser.id);
-        return isGoing !== undefined;
+        const request = event.requests.find((req) => req.speakerId === this.currentUser.id);
+        if (request === undefined || request === null) {
+            return 'PARTICIPATE';
+        } else {
+            return request.status;
+        }
     }
 
     private getCurrentUser() {
