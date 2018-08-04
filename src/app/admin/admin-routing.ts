@@ -5,7 +5,6 @@ import { AddSpeakerComponent } from './manage-speakers/add-speaker.component';
 import { SpeakerListResolve } from './manage-speakers/speaker-list.resolve';
 import { AddOrganizerComponent } from './manage-organizer/add-organizer.component';
 import { OrganizerListResolve } from './manage-organizer/organizer-list.resolve';
-import { OrganizerListComponent } from './manage-organizer/list-organizer.component';
 
 const routes: Routes = [
     {
@@ -19,13 +18,6 @@ const routes: Routes = [
             {
                 path: 'organizer/create',
                 component: AddOrganizerComponent
-            },
-            {
-                path: 'organizer/list',
-                component: OrganizerListComponent,
-                resolve: {
-                    organizers: OrganizerListResolve
-                }
             }
         ]
     }

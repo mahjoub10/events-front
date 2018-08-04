@@ -4,8 +4,8 @@ function makeAppConfig() {
   const year = date.getFullYear();
 
   const AppConfig = {
-    brand: 'Code Talent',
-    user: 'CodeOncer',
+    brand: 'Events',
+    user: 'event',
     year,
     layoutBoxed: false,               // true, false
     navCollapsed: false,              // true, false

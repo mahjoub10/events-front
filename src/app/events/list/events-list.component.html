@@ -7,13 +7,52 @@
             <div *ngFor="let event of events" class="col-xl-4 col-lg-6">
                 <div class="card bg-color-info">
                     <div class="card-content">
+                        <div class="card-ok">
+                            <i *ngIf="isAttendeeGoing(event)" class="material-icons">check_circle</i>
+                        </div>
                         <span class="card-title">{{event.name}}</span>
                         <p>{{event.description }}</p>
                     </div>
                     <div class="card-action">
                         <a [routerLink]="['/events/detail',event.id]">Lire plus</a>
+                        <a *ngIf="!isAttendeeGoing(event)" style="cursor: pointer;" (click)="openDialog(event.id, joinTemplate)">Participer</a>
                     </div>
                 </div>
             </div>
         </div>
     </article>
+
+
+    <ng-template #joinTemplate>
+
+        <div class="modal-body style-modal">
+            <div class="row">
+                <div class="col-md-12 login-form">
+                    <div class="">
+                        <!--  style="padding-left: 15px;font-size: 24px;"-->
+                        <h4>Demande de participation </h4>
+                        <div class="portlet ">
+
+                            <div class="portlet-body form">
+                                <!-- BEGIN FORM-->
+                                <p> Êtes-vous sûr de vouloir particper?</p>
+                                <!-- END FORM-->
+                            </div>
+
+                            <div class="form-actions">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <hr>
+                                        <a class="btn default" type="button" (click)="modalRef.hide()" data-dismiss="modal"> Annuler </a>
+                                        <a (click)="subscribeToEvent()" type="submit" class="btn green"> Envoyer </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </ng-template>

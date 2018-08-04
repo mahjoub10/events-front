@@ -29,27 +29,46 @@
                         Liste event
                     </button>
                 </li>
+
+                <!-- ORGANIZER MENU -->
                 <li>
-                    <button [routerLink]="['/organizer/event/create']" mat-button class="md-button header-btn">
+                    <button *userAuthority="'ROLE_ORGANIZER'" [routerLink]="['/organizer/requests']" mat-button class="md-button header-btn">
+                        Liste des demandes
+                    </button>
+                </li>
+
+
+                <li>
+                    <button *userAuthority="'ROLE_ORGANIZER'" [routerLink]="['/organizer/event/create']" mat-button class="md-button header-btn">
                         Ajouter event
                     </button>
                 </li>
+
+                <!-- ADMIN MENU  -->
                 <li>
-                    <button [routerLink]="['/admin/speaker/create']" mat-button class="md-button header-btn">
+                    <button  *userAuthority="'ROLE_ADMIN'" [routerLink]="['/admin/speaker/create']" mat-button class="md-button header-btn">
                         Ajouter speaker
                     </button>
                 </li>
                 <li>
-                    <button [routerLink]="['/admin/organizer/list']" mat-button class="md-button header-btn">
-                        Les Organizateur
+                    <button *userAuthority="'ROLE_ADMIN'" [routerLink]="['/admin/organizer/create']" mat-button class="md-button header-btn">
+                        Ajouter  Organizateur
+                    </button>
+                </li>
+
+                <!-- SPEAKER MENU -->
+                <li>
+                    <button *userAuthority="'ROLE_SPEAKER'" [routerLink]="['/speaker/events/requests']" mat-button class="md-button header-btn">
+                        Ajouter demande
                     </button>
                 </li>
 
                 <li>
-                    <button [routerLink]="['/speaker/events/requests']" mat-button class="md-button header-btn">
-                        Ajouter demande
+                    <button *userAuthority="'ROLE_SPEAKER'" [routerLink]="['/speaker/myEvents']" mat-button class="md-button header-btn">
+                        Més évennement
                     </button>
                 </li>
+
 
                 <li>
                     <button *ngSwitchCase="false" mat-button class="md-button header-btn" [routerLink]="['/login']">
@@ -61,29 +80,18 @@
                         Inscription
                     </button>
                 </li>
-                <li>
-                    <button [routerLink]="['/speaker/myEvents']" mat-button class="md-button header-btn">
-                        Més évennement
-                    </button>
-                </li>
-                <li>
-                    <button [routerLink]="['/organizer/requests']" mat-button class="md-button header-btn">
-                        Liste des demandes
-                    </button>
-                </li>
+
                 <li>
                     <button *ngSwitchCase="true" mat-button class="md-button header-btn" (click)="logout()">
                         Logout
                     </button>
                 </li>
 
-
                 <li>
                     <button mat-button class="md-button header-btn d-lg-none d-xl-none" myOpenSearchOverlay>
                         <i class="material-icons">search</i>
                     </button>
                 </li>
-                <!-- <li><button mat-button class="md-button header-btn"><i class="material-icons">more_vert</i></button></li> -->
             </ul>
         </div>
     </div>

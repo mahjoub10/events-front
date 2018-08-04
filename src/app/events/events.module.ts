@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { MatIconModule } from '@angular/material';
+import { MatIconModule, MatTabsModule, MatChipsModule } from '@angular/material';
 import { SharedModule } from '../shared/shared.module';
 import { EventsRoutingModule } from './events-routing.module';
 
@@ -25,7 +25,9 @@ import { EventResolve } from './resolve/event.resolve';
         ReactiveFormsModule,
         EventsRoutingModule,
         MatIconModule,
-        SharedModule
+        SharedModule,
+        MatTabsModule,
+        MatChipsModule,
     ],
     declarations: [
         EventsComponent,

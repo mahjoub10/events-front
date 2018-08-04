@@ -1,29 +1,106 @@
-<section>
+<section class="page-with-tabs">
 
-    <div class="event">
-        <div class="attendees">
-            <div class="title">Liste des invités</div>
-        </div>
-
-        <div class="detail">
-
-            <div class="title">{{event.name}}</div>
-
-            <div class="description">{{event.description}}</div>
-
-        </div>
-
-        <div class="action">
-            <div class="title">Action</div>
-            <div class="go">
-                {{isGoing}}
-                <button [disabled]="isGoing" (click)="going()" class="btn btn-success">I'm going</button>
-                <br>
-                <button [disabled]="!isGoing"  (click)="notGoing()" class="btn btn-warning">Not going</button>
-            </div>
-
-        </div>
-
+    <div class="page-title">
+        <h2>Timelines</h2>
     </div>
+
+    <div class="container-fluid">
+        <div class="ui-timline-container">
+            <section class="ui-timeline">
+                <article class="tl-item">
+                    <div class="tl-body">
+                        <div class="tl-entry">
+                            <div class="tl-caption">
+                                <a href="javascript:;" class="btn btn-primary btn-block">{{event.name}}</a>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="tl-item">
+                    <div class="tl-body">
+                        <div class="tl-entry">
+                            <div class="tl-time">Sujet</div>
+                            <div class="tl-icon btn-icon-round btn-icon btn-icon-thin btn-info">
+                                <i class="fa fa-asterisk"></i>
+                            </div>
+                            <div class="tl-content">
+                                <h4 class="tl-tile text-primary">{{event.subject}}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="tl-item alt">
+                    <div class="tl-body">
+                        <div class="tl-entry">
+                            <div class="tl-time">Contenu</div>
+                            <div class="tl-icon btn-icon-round btn-icon btn-icon-thin btn-warning">
+                                <i class="fa fa-shopping-cart"></i>
+                            </div>
+                            <div class="tl-content">
+                                <h4 class="tl-tile text-danger">Vous allez trouver</h4>
+                                <p>{{event.description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+
+
+                <article class="tl-item">
+                    <div class="tl-body">
+                        <div class="tl-entry">
+                            <div class="tl-time">Speakers</div>
+                            <div class="tl-icon btn-icon-round btn-icon btn-icon-thin btn-danger">
+                                <i class="fa fa-check"></i>
+                            </div>
+                            <div class="tl-content">
+                                <div class="row">
+                                    <div *ngFor="let speaker of event.speakers" class="col-xl-4">
+                                        <div class="ih-item ih-material">
+                                            <a href="javascript:;">
+                                                <div class="img">
+                                                    <img src="assets/images-demo/assets/600_400-1.jpg" alt="">
+                                                </div>
+                                                <div class="info">
+                                                    <div class="info-mask bg-color-primary"></div>
+                                                    <div class="info-content">
+                                                        <div class="info-inner">
+                                                            <h3>{{speaker.firstName+' '+speaker.lastName}}</h3>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="tl-item alt">
+                    <div class="tl-body">
+                        <div class="tl-entry">
+                            <div class="tl-time">Invités</div>
+                            <div class="tl-icon btn-icon-round btn-icon btn-icon-thin btn-primary">
+                                <i class="fa fa-clock-o"></i>
+                            </div>
+                            <div class="tl-content">
+                                <div class="box-body">
+                                    <mat-chip-list>
+                                        <mat-chip *ngFor="let attendee of event.attendees" color="accent" selected="true">{{attendee.firstName+' '+attendee.lastName}}</mat-chip>
+                                    </mat-chip-list>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+
+            </section>
+        </div>
+    </div>
+
 
 </section>
